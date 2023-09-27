@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="weather-side">
+            <div class="weather-gradient"></div>
+            <div class="date-container">
+                <h2 class="date-dayname">Quarta</h2>
+                <span class="date-day">15 Jan 2019</span>
+                <i class="location-icon" data-feather="map-pin"></i>
+                <span class="location">São PAulo, BR</span>
+            </div>
+            <div class="weather-container">
+                <i class="weather-icon" data-feather="sun"></i>
+                <h1 class="weather-temp">29°C</h1>
+                <h3 class="weather-desc">Sol</h3>
+            </div>
+        </div>
+        <div class="info-side">
+            <div class="today-info-container">
+                <div class="today-info">
+                    <div class="humidity">
+                        <span class="title">HUMIDADE</span>
+                        <span class="value">34 %</span>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="wind">
+                        <span class="title">VENTO</span>
+                        <span class="value">0 km/h</span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="week-container">
+                <ul class="week-list">
+                    <li class="active">
+                        <i class="day-icon" data-feather="sun"></i>
+                        <span class="day-name">Qua</span>
+                        <span class="day-temp">29°C</span>
+                    </li>
+                    <li>
+                        <i class="day-icon" data-feather="cloud"></i>
+                        <span class="day-name">Qui</span>
+                        <span class="day-temp">26°C</span>
+                    </li>
+                    <li>
+                        <i class="day-icon" data-feather="cloud-snow"></i>
+                        <span class="day-name">Sex</span>
+                        <span class="day-temp">22°C</span>
+                    </li>
+                    <li>
+                        <i class="day-icon" data-feather="cloud-rain"></i>
+                        <span class="day-name">Sáb</span>
+                        <span class="day-temp">21°C</span>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="location-container">
+                <!-- Add an ID to the button for easier JavaScript access -->
+                <button id="change-location-button" class="location-button"> <i data-feather="map-pin"></i><span>Alterar
+                        Localização</span></button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Include the Feather Icons library -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <script>
+        // Replace Feather Icons
+        feather.replace();
+
+        // Add an event listener to the "Change location" button
+        const changeLocationButton = document.getElementById('change-location-button');
+        changeLocationButton.addEventListener('click', () => {
+            // Prompt the user to enter a new location
+            const newLocation = prompt('Nova localização:');
+            if (newLocation !== null) {
+                // Update the location display
+                const locationElement = document.querySelector('.location');
+                locationElement.textContent = newLocation;
+            }
+        });
+    </script>
+</body>
+
+</html>
